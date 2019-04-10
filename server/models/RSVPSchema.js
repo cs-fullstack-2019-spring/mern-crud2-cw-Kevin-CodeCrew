@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// Simple model for an RSVP
+// Simple data model for an RSVP record
 const RSVPSchema = new Schema(
     {
         rsvp_person: String,
