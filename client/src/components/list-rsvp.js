@@ -9,9 +9,9 @@ const Rsvp = props => (
     // but the inputs are regular old form inputs so don't let CSS confuse you.
     <tr>
         <td>{props.rsvp.rsvp_person}</td>
-        <td>{props.rsvp.rsvp_going?'Yes':'No'}</td>
-        <td>
-            <Link to={"/edit/" + props.rsvp._id} className='btn btn-dark btn-sm'>Edit</Link> <Link to={"/delete/" + props.rsvp._id}  className='btn btn-dark btn-sm'>Delete</Link>
+        <td className='tdcenter'>{props.rsvp.rsvp_going?'Yes':'No'}</td>
+        <td className='tdcenter'>
+            <Link to={"/edit/" + props.rsvp._id} className='btn btn-dark btn-sm modbutton'>Edit</Link> <Link to={"/delete/" + props.rsvp._id}  className='btn btn-dark btn-sm modbutton'>Delete</Link>
         </td>
     </tr>
 );
@@ -81,9 +81,9 @@ export default class ListRsvp extends Component {
                 <table className="table table-striped" style={{marginTop: 20}}>
                     <thead>
                     <tr>
-                        <th>Person Invited</th>
-                        <th>Responded?</th>
-                        <th>Action</th>
+                        <th className='tdcenter'>Person Invited</th>
+                        <th className='tdcenter'>Responded?</th>
+                        <th className='tdcenter'>Action</th>
                     </tr>
                     </thead>
                     <tbody>
