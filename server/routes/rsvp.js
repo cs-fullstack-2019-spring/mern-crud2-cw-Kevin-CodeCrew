@@ -16,7 +16,8 @@ router.get('/', function (req, res, next) {
 // Get a specific RSVP
 router.get('/:id', function (req, res, next) {
     console.log(`LIST RSVP ${req.params.id}`);
-    RSVPCollection.find({_id: req.params.id}, (errors, results) => {
+    // FIXME Changed from find() to findOne()
+    RSVPCollection.findOne({_id: req.params.id}, (errors, results) => {
         errors ? res.send(errors) : res.send(results);
     })
 
@@ -32,12 +33,18 @@ router.put('/:id', function (req, res, next) {
 
 // Delete a specific RSVP -IMPLEMENT YOUR OWN FUNCTION
 router.delete('/:id', function (req, res, next) {
-    res.send(`DELETE RSVP ${req.params.id}`);
+    console.log(`DELETE RSVP ${req.params.id}`);
+    RSVPCollection.deleteOne({_id: req.params.id}, (errors, results) => {
+        errors ? res.send(errors) : res.send(results);
+    });
 });
 
 //Create a new RSVP -IMPLEMENT YOUR OWN FUNCTION
 router.post('/', function (req, res, next) {
-    res.send(`CREATE NEW RSVP ${req.body.rsvp_person} ${req.body.rsvp_going}`);
+    console.log(`CREATE NEW RSVP ${req.body.rsvp_person} ${req.body.rsvp_going}`);
+    RSVPCollection.create(req.body, (errors, results) => {
+        errors ? res.send(errors) : res.send(results);
+    })
 });
 
 module.exports = router;
