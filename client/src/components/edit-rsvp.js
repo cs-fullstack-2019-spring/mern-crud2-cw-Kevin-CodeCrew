@@ -99,10 +99,19 @@ export default class EditRsvp extends Component {
                         <input type="text" className="form-control" value={this.state.rsvp_person}
                                onChange={this.onChangeRSVPPerson} required autoFocus/>
                     </div>
+                    {/*<div className={"form-group"}>*/}
+                    {/*    <label>Has RSVPed:</label>*/}
+                    {/*    <input type="text" className="form-control" value={this.state.rsvp_going}*/}
+                    {/*           onChange={this.onChangeRSVPGoing} required/>*/}
+                    {/*</div>*/}
                     <div className={"form-group"}>
-                        <label>Has RSVPed:</label>
-                        <input type="text" className="form-control" value={this.state.rsvp_going}
-                               onChange={this.onChangeRSVPGoing} required/>
+                        <label>
+                            Has RSVPed?
+                        </label>
+                        <select value={this.state.rsvp_going} onChange={this.onChangeRSVPGoing} className="form-control">
+                            <option value={true}>Yes</option>
+                            <option value={false}>No</option>
+                        </select>
                     </div>
                     <div className="btn-toolbar">
                         <div className="btn-group mr-2" role="group">
